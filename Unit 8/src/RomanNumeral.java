@@ -50,24 +50,20 @@ public class RomanNumeral
 	public int getNumber()
 	{
 		number = 0;
-		while(roman != ""){
-		for(int j = 0; j < LETTERS.length; j++){
-			if(roman.length() >= 3 && roman.substring(0, 2).equals(LETTERS[j])){
-				number += NUMBERS[j];
-				if(roman.length() < 3){
-					
-				}else{
-					roman = roman.substring(2, roman.length());
+		
+		while(!roman.equals("")){
+		for(int i = 0; i < LETTERS.length; i++){
+			if(roman.length() <= 2){
+				if(LETTERS[i].equals(roman.substring(0,1))){
+					number += NUMBERS[i];
+					roman = roman.substring(1,roman.length());
 				}
+			}else if(LETTERS[i] == roman.substring(0,2)){
+				number += NUMBERS[i];
+				roman = roman.substring(2,roman.length());
 				
-			}else if(roman.length() >= 2 && roman.substring(0, 1).equals(LETTERS[j])){
-				number += NUMBERS[j];
-				roman = roman.substring(1, roman.length());
 			}
 		}
-			
-		
-		
 	}
 		return number;
 	}
