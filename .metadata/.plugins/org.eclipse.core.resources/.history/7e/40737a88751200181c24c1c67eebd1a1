@@ -49,13 +49,13 @@ public class RomanNumeral
 
 	public int getNumber()
 	{
-		number = 0;
+		
 		while(roman != ""){
 		for(int j = 0; j < LETTERS.length; j++){
 			if(roman.length() >= 3 && roman.substring(0, 2).equals(LETTERS[j])){
 				number += NUMBERS[j];
 				if(roman.length() < 3){
-					
+					roman = "";
 				}else{
 					roman = roman.substring(2, roman.length());
 				}

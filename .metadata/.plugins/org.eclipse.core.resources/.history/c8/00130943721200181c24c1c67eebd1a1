@@ -47,30 +47,26 @@ public class RomanNumeral
 
 	}
 
-	public int getNumber()
+	public Integer getNumber()
 	{
-		number = 0;
-		while(roman != ""){
-		for(int j = 0; j < LETTERS.length; j++){
-			if(roman.length() >= 3 && roman.substring(0, 2).equals(LETTERS[j])){
-				number += NUMBERS[j];
-				if(roman.length() < 3){
-					
-				}else{
-					roman = roman.substring(2, roman.length());
+		
+		for(int i = 0; i < roman.length() - 2; i++){
+			for(int j = 0; j < LETTERS.length; j++){
+				if(LETTERS[j].equals(roman.substring(i, i+2))){
+					number += NUMBERS[j];
 				}
 				
-			}else if(roman.length() >= 2 && roman.substring(0, 1).equals(LETTERS[j])){
-				number += NUMBERS[j];
-				roman = roman.substring(1, roman.length());
+				
+				
+				if(LETTERS[j].equals(roman.substring(i, i+1))){
+					number += NUMBERS[j];
+				}
 			}
-		}
 			
-		
-		
-	}
+		}
 		return number;
 	}
+
 	public String toString()
 	{
 		roman = "";

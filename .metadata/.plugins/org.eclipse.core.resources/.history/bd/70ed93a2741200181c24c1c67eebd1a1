@@ -47,20 +47,20 @@ public class RomanNumeral
 
 	}
 
-	public int getNumber()
+	public Integer getNumber()
 	{
-		number = 0;
+		
 		while(roman != ""){
 		for(int j = 0; j < LETTERS.length; j++){
-			if(roman.length() >= 3 && roman.substring(0, 2).equals(LETTERS[j])){
+			if(roman.length() > 3 && roman.substring(0, 2).equals(LETTERS[j])){
 				number += NUMBERS[j];
 				if(roman.length() < 3){
-					
+					roman = "";
 				}else{
 					roman = roman.substring(2, roman.length());
 				}
 				
-			}else if(roman.length() >= 2 && roman.substring(0, 1).equals(LETTERS[j])){
+			}else if(roman.substring(0, 1).equals(LETTERS[j])){
 				number += NUMBERS[j];
 				roman = roman.substring(1, roman.length());
 			}
@@ -68,8 +68,7 @@ public class RomanNumeral
 			
 		
 		
-	}
-		return number;
+	}return number;
 	}
 	public String toString()
 	{
