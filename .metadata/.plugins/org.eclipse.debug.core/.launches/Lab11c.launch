@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Unit 7/src/Lab11c.java"/>
+<listEntry value="/Lab9-elevensAct5Buggy1"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="1"/>
+<listEntry value="4"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Lab11c"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Unit 7"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Lab9-elevensAct5Buggy1"/>
 </launchConfiguration>

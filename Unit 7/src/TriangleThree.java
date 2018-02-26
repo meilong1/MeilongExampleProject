@@ -34,19 +34,34 @@ public class TriangleThree
 
 	public String toString()
 	{
+//		String output = "";
+//		for(int i = 0; i < size + 1; i++){
+//			int b = 0;
+//			for(int j = 0; j < i; j++){
+//				
+//				for(int z = b; z < size - i; z++){
+//					output += " ";
+//					b++;
+//				}
+//				output += letter;
+//			}
+//			output += "\n";
+//		}
+//		return output;
+		
+		
 		String output = "";
-		for(int i = 0; i < size + 1; i++){
-			int b = 0;
-			for(int j = 0; j < i; j++){
-				
-				for(int z = b; z < size - i; z++){
-					output += " ";
-					b++;
-				}
+		int reps = 1;
+		for(int i = size; i > 0; i--){
+			for(int j = 1; j < i; j++){
+				output += " ";
+			}
+			for(int z = 0; z < reps; z++){
 				output += letter;
 			}
 			output += "\n";
+			reps++;
 		}
-		return output;
+		return output;		
 	}
 }

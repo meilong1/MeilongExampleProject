@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 /**
@@ -74,8 +75,15 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		size = cards.length;
+		Random random = new Random();
+		for(int k = cards.length - 1; k >= 0; k--){
+			int r = random.nextInt(cards.length);
+			Card placeholder = cards[k];
+			cards[k] = cards[r];
+			cards[r] = placeholder;
 	}
-
+	}
 	/**
 	 * Deals a card from this deck.
 	 * @return the card just dealt, or null if all the cards have been
