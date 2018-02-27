@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -50,23 +50,35 @@ public class RomanNumeral
 	public int getNumber()
 	{
 		number = 0;
-		
-		while(!roman.equals("")){
-		for(int i = 0; i < LETTERS.length; i++){
-			if(roman.length() <= 2){
-				if(LETTERS[i].equals(roman.substring(0,1))){
-					number += NUMBERS[i];
-					roman = roman.substring(1,roman.length());
-				}
-			}else if(LETTERS[i] == roman.substring(0,2)){
-				number += NUMBERS[i];
-				roman = roman.substring(2,roman.length());
-				
-			}
-		}
+                for(int i = 0; i < roman.length(); i++){
+                    if (i + 1 < roman.length()) {
+                        String rchar = roman.substring(i, i + 2);
+                        int num = romanToInt(rchar);
+                        if (num == -1) {
+                            rchar = roman.substring(i, i + 1);
+                            num = romanToInt(rchar);
+                        } else {
+                            i++;
+                        }
+                        number += num;
+                    } else {
+                        String rchar = roman.substring(i, i + 1);
+                        int num = romanToInt(rchar);
+                        number += num;
+                    }
+                }
+                return number;
 	}
-		return number;
-	}
+        
+        private int romanToInt(String rom) {
+            for (int i = 0; i < LETTERS.length; i++) {
+                if (LETTERS[i].equals(rom)) {
+                    return NUMBERS[i];
+                }
+            }
+            return -1;
+        }
+        
 	public String toString()
 	{
 		roman = "";
