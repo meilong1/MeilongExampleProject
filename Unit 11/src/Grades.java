@@ -25,11 +25,11 @@ public class Grades
 	
 	public void setGrades(String gradeList)
 	{
+		gradeList = gradeList.substring(4);
 		String[] gradeListArray = gradeList.split(" ");
-		int j = 0;
-		for(int i = 2; i < gradeListArray.length; i++){
-			grades[j] = Double.parseDouble(gradeListArray[i]);
-			j++;
+		grades = new double[gradeListArray.length];
+		for(int i = 0; i < grades.length; i++){
+			grades[i] = Double.parseDouble(gradeListArray[i]);
 		}
 
 
@@ -37,15 +37,24 @@ public class Grades
 	
 	public void setGrade(int spot, double grade)
 	{
-
-
+		double[] newGrades = new double[grades.length + 1];
+		for(int i = 0; i < grades.length; i++){
+			newGrades[i] = grades[i];
+		}
+		for(int i = newGrades.length - 1; i > spot; i--){
+			newGrades[i] = newGrades[i - 1];
+		}
+		newGrades[spot] = grade;
+		grades = newGrades;
 
 	}
 	
 	public double getSum()
 	{
 		double sum=0.0;
-
+		for(int i = 0; i < grades.length; i++){
+			sum += grades[i];
+		}
 
 
 
@@ -55,7 +64,11 @@ public class Grades
 	public double getLowGrade()
 	{
 		double low = Double.MAX_VALUE;
-
+		for(int i = 0; i < grades.length; i++){
+			if(grades[i] < low){
+				low = grades[i];
+			}
+		}
 
 
 
@@ -66,7 +79,11 @@ public class Grades
 	public double getHighGrade()
 	{
 		double high = Double.MIN_VALUE;
-
+		for(int i = 0; i< grades.length; i++){
+			if(grades[i] > high){
+				high = grades[i];
+			}
+		}
 
 
 
@@ -82,7 +99,9 @@ public class Grades
 	public String toString()
 	{
 		String output="";
-
+		for(int i = 0; i < grades.length; i++){
+			output = output + grades[i] + " ";
+		}
 
 
 

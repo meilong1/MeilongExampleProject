@@ -47,15 +47,7 @@ public class Histogram
 		String s;
 		int counter;
 		for(int i = 0; i < letters.size(); i++){
-			counter = 0;
-			
-			// ERROR ALERT
-			// FILE MUST BE RESET EVERYTIME OR B AND C WILL NOT BE COUNTED
-			
-			
-			
-			
-			
+			counter = 0;	
 			while(file.hasNext()){
 				s = file.next();
 				for(int j = 0; j < s.length(); j++){
@@ -65,6 +57,8 @@ public class Histogram
 				}
 			}
 			count.add(counter);
+			file.close();
+			file = new Scanner(new File("H:\\Unit10\\Unit10-2016\\Unit10-Assignments\\Lab16e\\" + fileName));
 		}
 			
 		
@@ -78,15 +72,26 @@ public class Histogram
 
 	public char mostFrequent()
 	{
-
-		return '#';
+		int most = 0;
+		for(int i = 0; i < count.size(); i++){
+			if(count.get(i) > most){
+				most = count.get(i);
+			}
+		}
+		
+		return letters.get(count.indexOf(most));
 	}
 
 	public char leastFrequent()
 	{
+		int least = count.get(letters.indexOf(mostFrequent()));
+		for(int i = 0; i < count.size(); i++){
+			if(count.get(i) < least){
+				least = count.get(i);
+			}
+		}
 
-
-		return '#';
+		return letters.get(count.indexOf(least));
 	}
 
 	public String toString()
