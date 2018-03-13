@@ -9,21 +9,22 @@ import java.util.Scanner;
 import static java.lang.System.*;
 import static java.util.Arrays.*;
 
-public class Student
+public class Student implements Comparable <Student>
 {
 	private String myName;
 	private Grades myGrades;
 	
 	public Student()
 	{
-		setName("");
-		setGrades("");
+		myName = "";
+		myGrades = new Grades("5 - 78 99 69 42 66");
 	}
 	
 	public Student(String name, String gradeList)
 	{
+		this();
 		setName(name);
-		setGrades(gradeList);
+		myGrades = new Grades(gradeList);
 
 
 	}
@@ -63,7 +64,9 @@ public class Student
 	
 	public double getAverage()
 	{
-		return getSum()/getNumGrades();
+		double a = getSum()/getNumGrades();
+		//return Math.round(a * 100) / 100;
+		return Double.parseDouble(String.format("%.2f", a));
 	}
 
 	public double getAverageMinusLow()
@@ -81,8 +84,27 @@ public class Student
 		return myGrades.getLowGrade();	
 	}
 	
+//	public boolean compareTo(Student student2){
+//		if(getAverage() > student2.getAverage()){
+//			return true;
+//		}else{
+//			return false;
+//		}
+//	}
+	public int compareTo(Student param){
+		if(getAverage() > param.getAverage())
+			return 1;
+		else if(getAverage() < param.getAverage())
+			return -1;
+		return 0;
+	}
+	
+	
+	
 	public String toString()
 	{
-		return "";
+		String toreturn = myName + " = " + myGrades;
+		return toreturn;
+		
 	}	
 }

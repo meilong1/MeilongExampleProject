@@ -1,0 +1,48 @@
+//© A+ Computer Science  -  www.apluscompsci.com
+//Name -
+//Date -
+//Class -
+//Lab  -
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Arrays;
+import static java.lang.System.*;
+import java.util.ArrayList;
+public class Lab18d
+{
+	public static void main( String args[] ) throws IOException
+	{
+		Scanner file = new Scanner(new File("H:\\Unit12-2016\\Unit12-2016\\Unit12-Assignments\\lab18d\\lab18d.dat"));
+
+		int size = file.nextInt();
+		ArrayList<String> list = new ArrayList<String>();
+		
+		for(int i = 0; i < size; i++){
+			list.add(file.nextLine());
+		}
+		for(int j = 0; j < list.size(); j++){
+			System.out.println(list.get(j));
+		}
+		
+		
+		
+		
+		
+		
+		file.nextLine();
+		
+
+
+
+
+
+
+
+
+
+
+
+	}
+}
