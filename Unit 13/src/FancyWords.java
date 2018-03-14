@@ -15,7 +15,7 @@ public class FancyWords
 
 	public FancyWords(String sentence)
 	{
-
+		
 	}
 
 	public void setWords(String sentence)

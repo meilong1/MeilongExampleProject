@@ -40,11 +40,11 @@ public class GradeBookFileRunner
 				userclass.addStudent(i, newStu);
 			}
 		}
-		userclass.sort();
+		
 		school.add(userclass);
 		
 		System.out.println(userclass);
-		
+		userclass.sort();
 		System.out.println("Failure List = " + userclass.getFailureList(65));
 		System.out.println("Highest Average = " + userclass.getStudentWithHighestAverage());
 		System.out.println("Lowest Average = " + userclass.getStudentWithLowestAverage());

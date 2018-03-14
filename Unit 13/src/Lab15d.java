@@ -15,7 +15,7 @@ public class Lab15d
 {
 	public static void main( String args[] ) throws IOException
 	{
-
+		
 
 
 
