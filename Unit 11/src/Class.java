@@ -126,6 +126,7 @@ public class Class
 			for(int i = 0; i < studentList.size() - 1; i++){
 				if(studentList.get(i).compareTo(studentList.get(i + 1)) == 1){
 					Student temp = studentList.get(i);
+					
 					studentList.set(i, studentList.get(i + 1));
 					studentList.set(i + 1, temp);
 					

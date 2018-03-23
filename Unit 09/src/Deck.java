@@ -37,8 +37,8 @@ public class Deck {
 		int counter = 0;
 		for(int i = 0; i < ranks.length; i++){
 			for(int j = 0; j < suits.length; j++){
-				cards.set(counter, new Card(ranks[i], suits[j], values[i]));
-				counter++;
+				cards.add(new Card(ranks[i], suits[j], values[i]));
+				
 			}
 			
 			
@@ -96,8 +96,9 @@ public class Deck {
 		if(isEmpty()){
 			return null;
 		}
-		size -= 1;
-		return cards.get(size);
+		Card tempCard = cards.get(size() - 1);
+		size--;
+		return tempCard;
 	}
 
 	/**

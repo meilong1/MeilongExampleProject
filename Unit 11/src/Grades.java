@@ -27,6 +27,7 @@ public class Grades
 	public void setGrades(String gradeList)
 	{
 		gradeList = gradeList.substring(4);
+		
 		String[] gradeListArray = gradeList.split(" ");
 		//System.out.println(gradeListArray.length);
 		grades = new ArrayList<Double>(gradeListArray.length);

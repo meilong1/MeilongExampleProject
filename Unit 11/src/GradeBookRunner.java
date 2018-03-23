@@ -26,7 +26,7 @@ public class GradeBookRunner
 		String studentname = "";
 		String gradeList = "";
 		int intprinter = 0;
-		for(int i = 0; i < stuNum + 1; i++){
+		for(int i = 0; i < stuNum; i++){
 			intprinter = i + 1;
 			System.out.println("What is the name of student " + intprinter);
 			studentname = keyboard.nextLine();
