@@ -12,7 +12,7 @@ public class Lab21g
 	{
 		//instantiate an AtCounter
 		AtCounter ac = new AtCounter();
-		ac.countAts(0, 0);
+		ac.countAts(3, 3);
 		System.out.println(ac);
 		//test the code
 	}

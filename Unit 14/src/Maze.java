@@ -15,7 +15,7 @@ public class Maze
 
 	public Maze()
 	{
-		
+		maze = new int[2][2];
 
 	}
 
@@ -44,7 +44,7 @@ public class Maze
 //				System.out.println(maze[i][j]);
 //			}
 //		}
-		if(c == 4){
+		if(c == maze[1].length - 1){
 			return true;
 		}else{
 			if(r + 1 <= maze[0].length && maze[r + 1][c] == 1){
