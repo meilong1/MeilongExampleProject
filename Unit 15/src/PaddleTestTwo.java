@@ -20,34 +20,19 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 	private Ball ball;
 	private Paddle leftPaddle;
 	private Paddle rightPaddle;
-	private boolean[] keys;		//keeps track of what keys are pressed
+	private boolean[] keys;		
 
 	public PaddleTestTwo()
 	{
-		//set up all game variables
-		
-		
-		
-		
-		//instantiate a Ball
-		ball = new Ball(200,200,10,10,Color.BLUE,3,1);
-		
-		
-		//instantiate a left Paddle
-		leftPaddle = new Paddle(10, 250, 10, 50, 4);
-		
-		
-		
-		//instantiate a right Paddle
-		rightPaddle = new Paddle(760, 250, 10, 50, 4);
-		
-		
 
+		ball = new Ball();
+
+		leftPaddle = new Paddle();
+
+		rightPaddle = new Paddle(540,0,20,80,Color.RED,5);
 
 		keys = new boolean[5];
 
-
-		//set up the Canvas
 		setBackground(Color.WHITE);
 		setVisible(true);
 
@@ -65,6 +50,7 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 		ball.moveAndDraw(window);
 		leftPaddle.draw(window);
 		rightPaddle.draw(window);
+
 		if(!(ball.getX()>=10 && ball.getX()<=550))
 		{
 			ball.setXSpeed(-ball.getXSpeed());
@@ -77,12 +63,10 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 
 		if(keys[0] == true)
 		{
-			//move left paddle up and draw it on the window
 			leftPaddle.moveUpAndDraw(window);
 		}
 		if(keys[1] == true)
 		{
-			//move left paddle down and draw it on the window
 			leftPaddle.moveDownAndDraw(window);
 
 		}
@@ -120,7 +104,6 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
 
 	public void keyTyped(KeyEvent e)
 	{
-		//no code needed here
 	}
 	
    public void run()
@@ -134,7 +117,6 @@ public class PaddleTestTwo extends Canvas implements KeyListener, Runnable
          }
       }catch(Exception e)
       {
-    	  System.out.println("error");
       }
   	}		
 }
