@@ -11,25 +11,73 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
   }
   
+  /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyBlue(){
+	Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\beach.jpg");
+	beach.explore();
+	beach.keepOnlyBlue();
+	beach.explore();
+  }
+  
+  /** Method to test negate */
+  public static void testNegate(){
+	Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\beach.jpg");
+	beach.explore();
+	beach.negate();
+	beach.explore();
+  }
+  
+  /** Method to test grayscale */
+  public static void testGrayscale(){
+	Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\beach.jpg");
+	beach.explore();
+	beach.grayscale();
+	beach.explore();
+  }
+  
+  /** Method to test the fixUnderwater function */
+  public static void testFixUnderwater(){
+	  Picture water = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\water.jpg");
+		water.explore();
+		water.fixUnderwater();
+		water.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
   
+  /** Method to test mirrorHorizontal */
+  public static void testMirrorHorizontal(){
+	Picture caterpillar = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\caterpillar.jpg");
+	caterpillar.explore();
+	caterpillar.mirrorHorizontal();
+	caterpillar.explore();
+  }
+  
+  /** Method to test mirrorHorizontalBotToTop */
+  public static void testMirrorHorizontalBotToTop(){
+	Picture caterpillar = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\caterpillar.jpg");
+	caterpillar.explore();
+	caterpillar.mirrorHorizontalBotToTop();
+	caterpillar.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -38,18 +86,40 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
-    canvas.createCollage();
-    canvas.explore();
+	  
+	  Picture canvas = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\640x480.jpg");
+	  canvas.explore();
+	  canvas.createCollage();
+	  canvas.explore();
+	  
+  }
+  
+  /** Method to test mirrorArms */
+  public static void testMirrorArms(){
+	  Picture snowman = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\snowman.jpg");
+	  snowman.explore();
+	  snowman.mirrorArms();
+	  snowman.explore();
   }
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\swan.jpg");
+    swan.explore();
     swan.edgeDetection(10);
     swan.explore();
   }
+  
+  /** Method to test mirrorGull */ 
+  public static void testMirrorGull(){
+	  Picture gull = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\seagull.jpg");
+	  gull.explore();
+	  gull.mirrorGull();
+	  gull.explore();
+  }
+  
+
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -58,7 +128,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    //testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -66,13 +136,15 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
+	//testMirrorHorizontal();
+	//testMirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
