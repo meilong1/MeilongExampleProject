@@ -1,0 +1,29 @@
+import java.awt.Graphics;
+
+public class PowerUp extends MovingThing{
+
+	@Override
+	public void setSpeed(int s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getSpeed() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void move(String direction) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void draw(Graphics window) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

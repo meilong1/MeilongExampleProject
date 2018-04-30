@@ -1,0 +1,53 @@
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
+
+public class AllPower {
+	private List<PowerUp> powerups;
+	public AllPower()
+	{
+		powerups = new ArrayList<PowerUp>();
+	}
+
+	public void add(PowerUp pu)
+	{
+		powerups.add(pu);
+	}
+
+	//post - draw each PowerUp
+	public void drawEmAll( Graphics window )
+	{
+		for(int i = 0; i < powerups.size(); i++){
+			powerups.get(i).draw(window);
+		}
+	}
+
+	public void moveEmAll()
+	{
+		for(int i = 0; i < powerups.size(); i++){
+			powerups.get(i).move("DOWN");
+		}
+	}
+	public void cleanEmUp()
+	{
+		
+		
+		for(int i = 0; i < powerups.size(); i++){
+			if(powerups.get(i).getY() < 0){
+				powerups.remove(i);
+			}
+		}
+	}
+	public void remove(PowerUp pu){
+		powerups.remove(pu);
+	}
+	public List<PowerUp> getList()
+	{
+		return powerups;
+	}
+
+	public String toString()
+	{
+		return "";
+	}
+}

@@ -20,12 +20,15 @@ public class Picture extends SimplePicture
   /**
    * Constructor that takes no arguments 
    */
+	
   public Picture ()
   {
+	super();  
+	
     /* not needed but use it to show students the implicit call to super()
      * child constructors always call a parent constructor 
      */
-    super();  
+    
   }
   
   /**
@@ -35,6 +38,7 @@ public class Picture extends SimplePicture
   public Picture(String fileName)
   {
     // let the parent class handle this fileName
+	 
     super(fileName);
   }
   
@@ -364,16 +368,43 @@ public class Picture extends SimplePicture
     }
   }
   
+  /* Method for blurring */
+  boolean info = false;
+  public void blur(int x, int y, int w, int h){
+	  if(!info){
+		  System.out.println("Meilong Zhang, Period 1, 4/24/2018, Computer 5");
+		  info = true;
+	  }
+	  
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  Pixel topPixel = null;
+	  Pixel botPixel = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel pixel = pixels[x][y];
+	  for(int i = y; i < y + h; i++){
+		  for(int z = x; z < x + w; z++){
+			  pixel = pixels[z][i];
+			  leftPixel = pixels[z - 1][i];
+			  rightPixel = pixels[z + 1][i];
+			  topPixel = pixels[z][i - 1];
+			  botPixel = pixels[z][i + 1];
+			  pixel.setRed((leftPixel.getRed() + rightPixel.getRed() + topPixel.getRed() + botPixel.getRed() + pixel.getRed()) / 5);
+			  pixel.setBlue((leftPixel.getBlue() + rightPixel.getBlue() + topPixel.getBlue() + botPixel.getBlue() + pixel.getBlue()) / 5);
+			  pixel.setGreen((leftPixel.getGreen() + rightPixel.getGreen() + topPixel.getGreen() + botPixel.getGreen() + pixel.getGreen()) / 5);
+		  }
+	  }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
-  public static void main(String[] args) 
-  {
-    Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\caterpillar.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
-  }
+//  public static void main(String[] args) 
+//  {
+//    Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\caterpillar.jpg");
+//    beach.explore();
+//    beach.zeroBlue();
+//    beach.explore();
+//  }
   
 } // this } is the end of class Picture, put all new methods before this

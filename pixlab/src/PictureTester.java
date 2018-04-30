@@ -41,6 +41,19 @@ public class PictureTester
 	beach.explore();
   }
   
+  /** Method to test blur */
+  public static void testBlur(int x, int y, int w, int h, int n){
+	  
+	 Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\beach.jpg");
+	 beach.explore();
+	 for(int i = 0; i < n; i++){
+		 beach.blur(x, y, w, h);
+		 
+	 }
+	 beach.explore();
+	  
+  }
+  
   /** Method to test the fixUnderwater function */
   public static void testFixUnderwater(){
 	  Picture water = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\water.jpg");
@@ -144,7 +157,8 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    testEdgeDetection();
+    //testEdgeDetection();
+	  testBlur(1,1,478,638,30);
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
