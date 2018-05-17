@@ -15,8 +15,8 @@ public class Ball extends Block implements Collidable
 	public Ball()
 	{
 		super(200,200);
-		setWidth(10);
-		setHeight(10);
+		setWidth(40);
+		setHeight(40);
 		setColor(Color.BLACK);
 		xSpeed = 3;
 		ySpeed = 1;
@@ -24,8 +24,8 @@ public class Ball extends Block implements Collidable
 	
 	public Ball (int x, int y){
 		super(x,y);
-		setWidth(10);
-		setHeight(10);
+		setWidth(40);
+		setHeight(40);
 		setColor(Color.BLACK);
 		xSpeed = 3;
 		ySpeed = 1;
@@ -93,7 +93,7 @@ public class Ball extends Block implements Collidable
 	}
 	public boolean didCollideRight(Object obj){
 		Block xd = (Block)obj;
-		if (getX()<xd.getX() && getX()+getWidth()>=xd.getX() && (getY() >= xd.getY() && getY()+getHeight() <= xd.getY()+xd.getHeight())){
+		if (getX() <= xd.getX() && getX()+getWidth() >= xd.getX() && (getY() >= xd.getY() && getY()+getHeight() <= xd.getY() + xd.getHeight())){
 			return true;
 		}
 		return false;
@@ -107,7 +107,7 @@ public class Ball extends Block implements Collidable
 	}
 	public boolean didCollideBottom(Object obj){
 		Block xd = (Block)obj;
-		if (getY() <= xd.getY()+xd.getHeight() && getY()+getHeight() > xd.getY() && (getX()>=xd.getX() && getX()+getWidth()<=xd.getX()+xd.getWidth())){
+		if (getY() <= xd.getY() + xd.getHeight() && getY() + getHeight() > xd.getY() && (getX()>=xd.getX() && getX()+getWidth()<=xd.getX()+xd.getWidth())){
 			return true;
 		}
 		return false;

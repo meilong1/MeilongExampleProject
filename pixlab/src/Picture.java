@@ -396,15 +396,133 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  /* Given encode*/
+  public void encode(Picture messagePict){
+
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++){
+		  for (int col = 0; col < this.getWidth(); col++){
+			  // if the current pixel red is odd make it even
+			  currPixel = currPixels[row][col];
+			  if (currPixel.getRed() % 2 == 1)
+				  currPixel.setRed(currPixel.getRed() - 1);
+			  messagePixel = messagePixels[row][col];
+			  if (messagePixel.colorDistance(Color.BLACK) < 50){
+				  currPixel.setRed(currPixel.getRed() + 1);
+				  count++;
+			  }
+		  }
+	  }
+	  System.out.println(count);
+  }
+  
+  
+  
+  
+  
+  
+  
+  public void myEncode(Picture messagePict){
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++){
+		  for (int col = 0; col < this.getWidth(); col++){
+			  currPixel = currPixels[row][col];
+			  if((currPixel.getRed() % 5) == 0 || currPixel.getRed() == 0){
+				  currPixel.setRed(currPixel.getRed() + 1);
+			  }
+			  messagePixel = messagePixels[row][col];
+			  if(messagePixel.colorDistance(Color.BLACK) < 50){
+				  while((currPixel.getRed() % 5) != 0){
+					  count++;
+					  currPixel.setRed(currPixel.getRed() + 1);
+				  }
+			  }
+		  }
+	  }	  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  public Picture myDecode(){
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++){
+		  for (int col = 0; col < this.getWidth(); col++){
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  if (currPixel.getRed() % 5 == 0){
+				  messagePixel.setColor(Color.BLACK);
+				  count++;
+			  }
+		  }
+	  }
+	  System.out.println(count);
+	  return messagePicture;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Given decode */
+  public Picture decode(){
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++){
+		  for (int col = 0; col < this.getWidth(); col++){
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  if (currPixel.getRed() % 2 == 1){
+				  messagePixel.setColor(Color.BLACK);
+				  count++;
+			  }
+		  }
+	  }
+	  System.out.println(count);
+	  return messagePicture;
+  }
+  
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
-//  public static void main(String[] args) 
-//  {
-//    Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\caterpillar.jpg");
-//    beach.explore();
-//    beach.zeroBlue();
-//    beach.explore();
-//  }
+  public static void main(String[] args) 
+  {
+    Picture beach = new Picture("C:\\Users\\zhangm0123\\Desktop\\MeilongExampleProject\\pixlab\\src\\crybytes-apple_icon.jpg");
+    beach.explore();
+    //beach.zeroBlue();
+    //beach.explore();
+  }
   
 } // this } is the end of class Picture, put all new methods before this
